@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 import useFetch from "@/hooks/use-fetch";
 import { updateUser } from "@/actions/user";
+import { toast } from "sonner";
 
 const OnboardingForm = ({ industries }) => {
  const [selectedIndustry, setSelectedIndustry] = useState(null);
@@ -182,7 +183,6 @@ const OnboardingForm = ({ industries }) => {
               ) : (
                 "Complete Profile"
               )}
-              complete Profile
             </Button>
           </form>
         </CardContent>
