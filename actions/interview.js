@@ -122,29 +122,29 @@ export async function saveQuizResult(questions, answers, score) {
   }
 }
 
-// export async function getAssessments() {
-//   const { userId } = await auth();
-//   if (!userId) throw new Error("Unauthorized");
+export async function getAssessments() {
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthorized");
 
-//   const user = await db.user.findUnique({
-//     where: { clerkUserId: userId },
-//   });
+  const user = await db.user.findUnique({
+    where: { clerkUserId: userId },
+  });
 
-//   if (!user) throw new Error("User not found");
+  if (!user) throw new Error("User not found");
 
-//   try {
-//     const assessments = await db.assessment.findMany({
-//       where: {
-//         userId: user.id,
-//       },
-//       orderBy: {
-//         createdAt: "asc",
-//       },
-//     });
+  try {
+    const assessments = await db.assessment.findMany({
+      where: {
+        userId: user.id,
+      },
+      orderBy: {
+        createdAt: "asc",
+      },
+    });
 
-//     return assessments;
-//   } catch (error) {
-//     console.error("Error fetching assessments:", error);
-//     throw new Error("Failed to fetch assessments");
-//   }
-// }
+    return assessments;
+  } catch (error) {
+    console.error("Error fetching assessments:", error);
+    throw new Error("Failed to fetch assessments");
+  }
+}

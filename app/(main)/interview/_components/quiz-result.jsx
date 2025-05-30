@@ -11,7 +11,7 @@ const QuizResult = ({
 }) => {
     if(!result) return null;
   return (
-    <div>
+    <div className='mx-auto'>
         <h1 className="flex items-center gap-2 text-3xl gradient-title">
         <Trophy className="h-6 w-6 text-yellow-500" />
         Quiz Results
